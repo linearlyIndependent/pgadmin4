@@ -192,9 +192,9 @@ RUN apk add \
     groupadd -g 5050 pgadmin && \
     useradd -r -u 5050 -g pgadmin pgadmin && \
     mkdir -p /var/lib/pgadmin && \
-    chown pgadmin:pgadmin /var/lib/pgadmin && \
+    chown pgadmin:0 /var/lib/pgadmin && \
     touch /pgadmin4/config_distro.py && \
-    chown pgadmin:pgadmin /pgadmin4/config_distro.py && \
+    chown pgadmin:0 /pgadmin4/config_distro.py && \
     setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/python3.9 && \
     echo "pgadmin ALL = NOPASSWD: /usr/sbin/postfix start" > /etc/sudoers.d/postfix
 
